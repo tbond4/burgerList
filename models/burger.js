@@ -1,5 +1,21 @@
 const orm=require("../config/orm");
 
-// Also inside burger.js, create the code that will call the ORM functions using burger specific input for the ORM.
+const burger={
+    selectALL: function(cb){
+        orm.selectAll(function(res){
+            cb(res);
+        })
+    },
+    insertOne: function(cb){
+        orm.insertOne(function(res){
+            cb(res);
+        })
+    },
+    updateOne: function(cb){
+        orm.updateOne(function(res){
+            cb(res);
+        })
+    }
+}
 
-// Export at the end of the burger.js file.
+module.exports=burger;
