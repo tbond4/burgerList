@@ -11,16 +11,16 @@ const orm ={
               cb(data);
         })
     },
-    insertOne: function(cb){
-        connection.query("INSERT INTO burgers WHERE ?;",function(err,data){
+    insertOne: function(burger,cb){
+        connection.query("INSERT INTO burgers(burger_name) VALUES (?);",burger,function(err,data){
             if(err){
                 throw err;
               }
               cb(data);
         })
     },
-    updateOne: function(cb){
-        connection.query("UPDATE ? WHERE ?;",function(err,data){
+    updateOne: function(id,cb){
+        connection.query("UPDATE burgers SET devoured=true WHERE id =?;",id,function(err,data){
             if(err){
                 throw err;
               }
