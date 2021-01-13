@@ -1,32 +1,37 @@
-<h1>Burger List</h1>
+<h1 class="text-center mb-5 pt-3 pb-3 bg-primary">Burger List</h1>
+<div class= "container">
 <div class="row align-items-start">
     <div class="col">
-        <ul class="devoured">
-        {{#each burgers}}
-        {{#if devoured}}
-        <li> {{burger_name}} </li>
-        {{/if}}
-        {{/each}}
-        </ul>
-    </div>
-    <div class="col">
-        <form action="/api/burgers" method="POST">
-            <textarea type="text" name="burger_name"></textarea>
-
-            <button type="submit">Submit</button>
-        </form>
-    </div>
-    <div class="col">
+        <h3>Still need to DEVOUR</h3>
         <ul class="notDevoured">
-        
+            
             {{#each burgers}}
             {{#unless devoured}}
-            <li> {{burger_name}} <button data-id={{id}} class="devourbtn">Devour</button></li>
+            <li class="bg-secondary m-1 p-1 text-white fw-bold"> {{burger_name}} <button data-id={{id}} class="devourbtn">Devour</button></li>
             {{/unless}}
             {{/each}}
             
         </ul>
     </div>
+    <div class="col">
+        <h4>Add another burger</h4>
+        <form action="/api/burgers" method="POST">
+            <textarea type="text" name="burger_name" placeholder="Add a Burger"></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="col">
+        <h3>Previously DEVOURED</h3>
+        <ul class="devoured">
+        {{#each burgers}}
+        {{#if devoured}}
+        <li class="bg-secondary m-1 p-1 text-white fw-bold"> {{burger_name}} </li>
+        {{/if}}
+        {{/each}}
+        </ul>
+    </div>
+</div>
 </div>
 <script>
    $(".devourbtn").on("click",function(event){
