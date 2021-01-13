@@ -4,18 +4,18 @@ const burger={
     selectALL: function(cb){
         orm.selectAll(function(res){
             cb(res);
-        })
+        });
     },
-    insertOne: function(cb){
-        orm.insertOne(function(res){
+    insertOne: function(burger_name,cb){
+        orm.insertOne(burger_name,function(res){
             cb(res);
-        })
+        });
     },
-    updateOne: function(cb){
-        orm.updateOne(function(res){
+    updateOne: function(id,cb){
+        orm.updateOne(id,function(res){
             cb(res);
-        })
+        });
     }
-}
+};
 
 module.exports=burger;

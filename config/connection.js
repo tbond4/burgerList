@@ -1,5 +1,5 @@
 const mysql=require("mysql");
-const { threadId } = require("../../../week 13/Day-03/16-MvcExample/config/connection");
+
 
 const connection = mysql.createConnection({
     host:"localhost",
@@ -14,6 +14,6 @@ connection.connect(function(err){
         console.log("Error connecting" + err.stack);
         return;
     }
-    console.log("Connected as id " + threadId);
+    console.log("Connected as id ");
 });
 module.exports = connection;
